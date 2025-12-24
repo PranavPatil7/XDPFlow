@@ -264,26 +264,3 @@ If you'd like to disable forward rule logging entirely (which will improve perfo
 When loading the BPF/XDP program through LibXDP/LibBPF, logging is disabled unless if the `verbose` log setting is set to `5` or higher.
 
 If the tool fails to load or attach the XDP program, it is recommended you set `verbose` to 5 or above so LibXDP outputs specific warnings and errors.
-
-## ❓ F.A.Q.
-### Why are binaries and configs named `xdpfwd`?
-Originally, this project was called **XDP Forwarding**. After I revamped the project, I decided to rename the main project to **XDP Proxy** since that suits the project more in my opinion. However, executable names like `xdpproxy` doesn't flow as well in my opinion, so I decided to keep binaries and config names/paths set to `xdpfwd`.
-
-## 🌟 My Other XDP Projects
-I just wanted to share other open source projects I've made which also utilize XDP (or AF_XDP sockets) for those interested. I hope code from these other projects help programmers trying to utilize XDP in their own projects!
-
-### [XDP Firewall](https://github.com/gamemann/XDP-Firewall)
-A *stateless* firewall that attaches to the [XDP](https://www.iovisor.org/technology/xdp) hook in the Linux kernel using [(e)BPF](https://ebpf.io/) for fast packet processing.
-
-This firewall is designed for performance and flexibility, offering features such as dynamic filtering, source IP blocking, IP range dropping, and real-time packet counters. This makes it a powerful tool for network engineers, security professionals, and anyone interested in XDP or high-performance firewalling.
-
-### [Kilimanjaro](https://github.com/gamemann/Kilimanjaro)
-This is a complex packet processing/forwarding/dropping project I made for a gaming community I was a part of that utilizes XDP, AF_XDP, and the IPIP network protocol. I no longer work on/maintain the project, but the source code may be very helpful to other XDP developers, especially when it comes to manipulating packets inside of XDP and such.
-
-### [Packet Batch (AF_XDP)](https://github.com/Packet-Batch/PB-AF-XDP)
-An application that utilizes fast [AF_XDP](https://docs.kernel.org/networking/af_xdp.html) Linux sockets to generate and send network packets. This is used for penetration testing including [Denial of Service](https://www.cloudflare.com/learning/ddos/glossary/denial-of-service/) (DoS), network monitoring, and more!
-
-While this application doesn't utilize native XDP or (e)BPF, I do feel it should be mentioned here. AF_XDP sockets are very fast and often used with raw XDP programs via the `bpf_redirect_map()` function call (also see my [XDP Stats](https://github.com/gamemann/XDP-Stats) project which calculates stats in raw XDP and AF_XDP programs).
-
-## 🙌 Credits
-* [Christian Deacon](https://github.com/gamemann) - Creator.
